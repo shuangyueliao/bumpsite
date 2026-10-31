@@ -1,4 +1,5 @@
 ---
+permalink: /articles/best-gestational-diabetes-app/
 title: "The Best Gestational Diabetes App (2026): a 9-Point Checklist Instead of a Ranking"
 slug: best-gestational-diabetes-app
 target_keyword: "best gestational diabetes app"

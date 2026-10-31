@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-food-log/
 title: "The GDM Food Log: Record Meals So Your Dietitian Can Actually Use Them"
 slug: gestational-diabetes-food-log
 article_id: B6

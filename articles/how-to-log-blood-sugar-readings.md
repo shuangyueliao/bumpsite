@@ -1,4 +1,5 @@
 ---
+permalink: /articles/how-to-log-blood-sugar-readings/
 title: "How to Log a Blood Sugar Reading: the Complete Entry, Meter Memory, and Notes That Make Numbers Usable"
 slug: how-to-log-blood-sugar-readings
 article_id: B1

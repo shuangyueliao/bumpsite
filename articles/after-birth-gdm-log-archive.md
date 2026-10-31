@@ -1,4 +1,5 @@
 ---
+permalink: /articles/after-birth-gdm-log-archive/
 title: "After Birth: Your GDM Log as an Archive — Follow-Up Tracking and Taking Your Data With You"
 slug: after-birth-gdm-log-archive
 article_id: C7

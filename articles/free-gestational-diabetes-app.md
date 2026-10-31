@@ -1,4 +1,5 @@
 ---
+permalink: /articles/free-gestational-diabetes-app/
 title: "Free Gestational Diabetes Apps: What 'Free' Costs Your Data, Your Attention, and Sometimes Your Export"
 slug: free-gestational-diabetes-app
 target_keyword: "free gestational diabetes app"

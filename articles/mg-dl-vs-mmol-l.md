@@ -1,4 +1,5 @@
 ---
+permalink: /articles/mg-dl-vs-mmol-l/
 title: "mg/dL vs mmol/L: Reading Your Pregnancy Glucose Log in Either Unit"
 slug: mg-dl-vs-mmol-l
 article_id: C5

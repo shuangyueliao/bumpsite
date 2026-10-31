@@ -1,4 +1,5 @@
 ---
+permalink: /articles/insulin-log/
 title: "Insulin Notes in Your GDM Log: What to Record — and What You Should Never Decide Yourself"
 slug: insulin-log
 article_id: B7

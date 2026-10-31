@@ -1,4 +1,5 @@
 ---
+permalink: /articles/diet-controlled-gestational-diabetes/
 title: "Diet-Controlled Gestational Diabetes: What the Phrase on Your Chart Means, and What It Doesn't"
 slug: diet-controlled-gestational-diabetes
 target_keyword: "diet controlled gestational diabetes"

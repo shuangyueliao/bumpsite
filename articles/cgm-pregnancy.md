@@ -1,4 +1,5 @@
 ---
+permalink: /articles/cgm-pregnancy/
 title: "Using a CGM During Pregnancy: What Flows Into Your Log (and What Still Needs a Fingerstick)"
 slug: cgm-pregnancy
 target_keyword: "cgm pregnancy"

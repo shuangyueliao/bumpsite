@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-questions-to-ask-doctor/
 title: "Questions to Ask at Your Gestational Diabetes Appointments (+ Free Printable Agenda)"
 slug: gestational-diabetes-questions-to-ask-doctor
 article_id: C2

@@ -1,4 +1,5 @@
 ---
+permalink: /articles/message-doctor-blood-sugar-readings/
 title: "Messaging Your Doctor About Blood Sugar Readings: the Portal Message That Actually Gets a Reply"
 slug: message-doctor-blood-sugar-readings
 pillar: doctor-communication

@@ -1,4 +1,5 @@
 ---
+permalink: /articles/paper-log-vs-app-gestational-diabetes/
 title: "Paper Log vs App for Gestational Diabetes: An Honest Comparison (Including When Paper Wins)"
 slug: paper-log-vs-app-gestational-diabetes
 article_id: C3

@@ -1,4 +1,5 @@
 ---
+permalink: /articles/printable-blood-sugar-log/
 title: "Printable Blood Sugar Log (Free PDF) vs a GDM App: How to Pick in 5 Minutes"
 slug: printable-blood-sugar-log
 target_keyword: "printable blood sugar log"

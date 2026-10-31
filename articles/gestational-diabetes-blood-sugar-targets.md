@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-blood-sugar-targets/
 title: "GDM Blood Sugar Targets: Why the Numbers on Your Log Belong to Your Care Team"
 slug: gestational-diabetes-blood-sugar-targets
 article_id: A5

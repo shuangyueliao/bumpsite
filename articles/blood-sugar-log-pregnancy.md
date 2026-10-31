@@ -1,4 +1,5 @@
 ---
+permalink: /articles/blood-sugar-log-pregnancy/
 title: "How to Read Your Blood Sugar Log During Pregnancy: Patterns, Not Panic — and How to Fix a Mistaken Entry"
 slug: blood-sugar-log-pregnancy
 target_keyword: "blood sugar log pregnancy"

@@ -1,4 +1,5 @@
 ---
+permalink: /articles/how-to-print-blood-sugar-log/
 title: "How to Print Your Blood Sugar Log: Getting GDM Numbers Onto Paper Your Clinic Accepts"
 slug: how-to-print-blood-sugar-log
 pillar: logging-and-tools

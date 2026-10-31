@@ -1,4 +1,5 @@
 ---
+permalink: /articles/high-fasting-blood-sugar-reading/
 title: "A High Reading in Your GDM Log: What to Write Down Before You Worry"
 slug: high-fasting-blood-sugar-reading
 article_id: B4

@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-log-book-report/
 title: "How to Turn Your GDM Log Book Into a 2-Page Report Your Doctor Will Actually Read"
 slug: gestational-diabetes-log-book-report
 article_id: C1

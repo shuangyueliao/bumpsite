@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-medical-records/
 title: "Your GDM Paper Trail: How to Get Copies of Your Own Pregnancy Records, and Keep Them With Your Log"
 slug: gestational-diabetes-medical-records
 target_keyword: "gestational diabetes medical records"

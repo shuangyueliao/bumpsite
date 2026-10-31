@@ -1,4 +1,5 @@
 ---
+permalink: /articles/time-in-range-pregnancy/
 title: "Time in Range During Pregnancy: What TIR Can and Can't Tell You About Your Log"
 slug: time-in-range-pregnancy
 article_id: B5

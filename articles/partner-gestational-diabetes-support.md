@@ -1,4 +1,5 @@
 ---
+permalink: /articles/partner-gestational-diabetes-support/
 title: "Your Partner Has Gestational Diabetes: How to Help the Logging System Without Becoming the Food Police"
 slug: partner-gestational-diabetes-support
 target_keyword: "gestational diabetes partner support"

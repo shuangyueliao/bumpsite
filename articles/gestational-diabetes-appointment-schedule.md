@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-appointment-schedule/
 title: "Gestational Diabetes Appointment Schedules: the Common Shapes, Your Team's Version, and Tracking Yours"
 slug: gestational-diabetes-appointment-schedule
 target_keyword: "gestational diabetes appointment schedule"

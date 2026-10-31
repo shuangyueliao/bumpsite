@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-first-trimester/
 title: "Gestational Diabetes in the First Trimester: Starting Your Log Earlier Than Everyone Else"
 slug: gestational-diabetes-first-trimester
 target_keyword: "gestational diabetes first trimester"

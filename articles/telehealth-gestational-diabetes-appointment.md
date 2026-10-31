@@ -1,4 +1,5 @@
 ---
+permalink: /articles/telehealth-gestational-diabetes-appointment/
 title: "Telehealth Visits With Gestational Diabetes: How to Show Your Numbers When There's No Paper to Hand Over"
 slug: telehealth-gestational-diabetes-appointment
 pillar: doctor-communication

@@ -1,4 +1,5 @@
 ---
+permalink: /articles/when-to-check-blood-sugar-after-eating-pregnancy/
 title: "When to Check Blood Sugar After Eating During Pregnancy: 1-Hour vs 2-Hour — and When the Clock Starts"
 slug: when-to-check-blood-sugar-after-eating-pregnancy
 target_keyword: "when to check blood sugar after eating pregnancy"

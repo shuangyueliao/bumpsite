@@ -1,4 +1,5 @@
 ---
+permalink: /articles/just-diagnosed-gestational-diabetes/
 title: "Just Diagnosed With Gestational Diabetes? Your First 7 Days, Step by Step"
 slug: just-diagnosed-gestational-diabetes
 article_id: A1

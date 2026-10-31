@@ -1,4 +1,5 @@
 ---
+permalink: /articles/checking-blood-sugar-at-work/
 title: "Checking Blood Sugar at Work: Logging Around Shifts, Meetings, and Coworkers' Questions"
 slug: checking-blood-sugar-at-work
 target_keyword: "gestational diabetes at work"

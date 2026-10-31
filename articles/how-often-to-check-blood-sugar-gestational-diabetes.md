@@ -1,4 +1,5 @@
 ---
+permalink: /articles/how-often-to-check-blood-sugar-gestational-diabetes/
 title: "How Often to Check Blood Sugar With Gestational Diabetes: Your Team Sets the Number — a System Makes It Happen"
 slug: how-often-to-check-blood-sugar-gestational-diabetes
 article_id: B2

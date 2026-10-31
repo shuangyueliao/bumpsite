@@ -1,4 +1,5 @@
 ---
+permalink: /articles/glucose-tolerance-test-pregnancy/
 title: "The OGTT in Pregnancy: the Test-Day Walkthrough, mg/dL vs mmol/L, and Keeping Your Numbers"
 slug: glucose-tolerance-test-pregnancy
 article_id: A3

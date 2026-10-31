@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-vs-type-2-diabetes/
 title: "Gestational Diabetes vs Type 2 Diabetes: the Words on Your Chart, and Why Postpartum Testing Goes in Your Archive"
 slug: gestational-diabetes-vs-type-2-diabetes
 pillar: pregnancy-basics

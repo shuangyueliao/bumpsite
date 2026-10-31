@@ -1,4 +1,5 @@
 ---
+permalink: /articles/blood-sugar-levels-in-pregnancy/
 title: "Blood Sugar Levels in Pregnancy: Every Number You'll See, What It Measures, and Who It Belongs To"
 slug: blood-sugar-levels-in-pregnancy
 target_keyword: "blood sugar levels in pregnancy"

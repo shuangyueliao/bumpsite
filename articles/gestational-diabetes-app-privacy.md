@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-app-privacy/
 title: "Gestational Diabetes Apps and Your Data: Who Sees What"
 slug: gestational-diabetes-app-privacy
 article_id: A6

@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-second-trimester/
 title: "Gestational Diabetes in the Second Trimester: From the Screening Window to Your First Month of Logging"
 slug: gestational-diabetes-second-trimester
 target_keyword: "gestational diabetes second trimester"

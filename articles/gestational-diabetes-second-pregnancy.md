@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-second-pregnancy/
 title: "Gestational Diabetes in a Second Pregnancy: Bringing Last Time's Log to Your First Appointment"
 slug: gestational-diabetes-second-pregnancy
 pillar: doctor-communication

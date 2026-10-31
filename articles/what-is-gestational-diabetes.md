@@ -1,4 +1,5 @@
 ---
+permalink: /articles/what-is-gestational-diabetes/
 title: "What Is Gestational Diabetes? An Overview Focused on What You'll Be Tracking"
 slug: what-is-gestational-diabetes
 article_id: A4

@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-third-trimester/
 title: "Gestational Diabetes in the Third Trimester: Weekly Visits, Insulin Conversations, and What to Bring"
 slug: gestational-diabetes-third-trimester
 target_keyword: "gestational diabetes third trimester"

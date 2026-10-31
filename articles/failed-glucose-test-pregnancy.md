@@ -1,4 +1,5 @@
 ---
+permalink: /articles/failed-glucose-test-pregnancy/
 title: "Failed the Glucose Test in Pregnancy? What Happens Next — and What to Write Down"
 slug: failed-glucose-test-pregnancy
 article_id: A2

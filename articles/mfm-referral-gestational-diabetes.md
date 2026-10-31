@@ -1,4 +1,5 @@
 ---
+permalink: /articles/mfm-referral-gestational-diabetes/
 title: "Referred to MFM for Gestational Diabetes: What the Referral Process Looks Like, and What to Bring From Your Log"
 slug: mfm-referral-gestational-diabetes
 pillar: doctor-communication

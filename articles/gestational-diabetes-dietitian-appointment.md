@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-dietitian-appointment/
 title: "Your First GDM Dietitian Appointment: What to Bring From Your Food Log, and What to Write Down After"
 slug: gestational-diabetes-dietitian-appointment
 pillar: doctor-communication

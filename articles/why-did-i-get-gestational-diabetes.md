@@ -1,4 +1,5 @@
 ---
+permalink: /articles/why-did-i-get-gestational-diabetes/
 title: "Why Did I Get Gestational Diabetes? Turning the Blame Question Into Questions for Your Care Team"
 slug: why-did-i-get-gestational-diabetes
 target_keyword: "gestational diabetes causes"

@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-log-burnout/
 title: "GDM Logging Burnout: the Minimum Viable Log for the Weeks You Can't Keep Up"
 slug: gestational-diabetes-log-burnout
 target_keyword: "gestational diabetes burnout"

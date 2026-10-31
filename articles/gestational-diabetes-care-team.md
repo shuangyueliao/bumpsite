@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-care-team/
 title: "Your Gestational Diabetes Care Team: Who Does What, Who Sees Your Log, and Who to Call"
 slug: gestational-diabetes-care-team
 pillar: doctor-communication

@@ -1,4 +1,5 @@
 ---
+permalink: /articles/transfer-blood-sugar-log-new-phone/
 title: "New Phone, Same Log: Backing Up and Moving Your GDM Reading History"
 slug: transfer-blood-sugar-log-new-phone
 pillar: logging-and-tools

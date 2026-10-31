@@ -1,4 +1,5 @@
 ---
+permalink: /articles/gestational-diabetes-meal-ideas/
 title: "Gestational Diabetes Meal Ideas: Why Your Log — Not the Internet — Should Shortlist Your Next Meal"
 slug: gestational-diabetes-meal-ideas
 target_keyword: "gestational diabetes meal ideas"

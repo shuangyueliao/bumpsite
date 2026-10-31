@@ -1,3 +1,8 @@
+---
+title: "All Articles — Gestational Diabetes Guides"
+permalink: /articles/
+---
+
 # bumpsite/articles · 新增 24 篇内容索引（batch 1–2 新稿）
 
 > **内部策划文档**（含引流策略与差评对位打法），不是站点页面。部署 Cloudflare Pages 时建议将本文件从发布目录排除。
