@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#b8507c">
+
+<!-- ============================================================
+     SEO 基础（选词依据 = out/gdm/aso-dataset.md §9 发现 3）
+     中：title 瞄准素人长尾词缺口：「gestational diabetes log book」
+     （aso-dataset.md:119，#36 半开）、「blood sugar tracker/log」词族
+     （aso-dataset.md:105-115，Top10 弱格位 1-4 个）；品牌词只占尾部。
+     纯空位行话词「ogtt」「time in range」（aso-dataset.md:101-102，
+     缝口=空置/头部全无关 App）在 FAQ 与功能卡里自然带出，不硬塞 title。
+     全页零临床数值（医疗红线），上线用英文。
+     ============================================================ -->
+<title>Gestational Diabetes Log Book &amp; Blood Sugar Tracker | BumpSugar</title>
+<!-- 中（title）：妊娠糖尿病记录本与血糖追踪器 | BumpSugar -->
+<meta name="description" content="Blood sugar logging built for gestational diabetes: quick entries, time in range and printable reports your doctor can read. No ads, no account, data stays on-device.">
+<!-- 中（description）：为妊娠糖尿病打造的血糖记录：快速录入、time in range、医生读得懂的打印报告。无广告、无账号、数据不出设备。 -->
+<meta name="robots" content="index, follow">
+
+<!-- 中：canonical / og:url 用 pages.dev 兜底子域占位。
+     TODO：本次构建时 nslookup（202.96.134.133，2026-10-29）对 bumpsugar.pages.dev 返回 NXDOMAIN，
+     大陆 DNS 对 pages.dev 可能污染，无法确证子域可占——绑定正式域名后替换本行与 og:url。 -->
+<link rel="canonical" href="https://bumpsugar.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BumpSugar">
+<meta property="og:title" content="Gestational Diabetes Log Book &amp; Blood Sugar Tracker | BumpSugar">
+<meta property="og:description" content="Blood sugar logging built for gestational diabetes: quick entries, time in range and printable reports your doctor can read. No ads, no account, data stays on-device.">
+<meta property="og:url" content="https://bumpsugar.pages.dev/">
+<meta name="twitter:card" content="summary">
+<!-- 中：TODO 上线前补 og:image（1200×630），纯静态下放一张站点根目录图片即可，注意别引外部图床。 -->
+
+<!-- 零依赖 favicon：内联 SVG data URI（孕肚弧线），无外部请求 -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23b8507c'/%3E%3Cpath d='M9 22c0-6.5 3.1-11.5 7-11.5s7 5 7 11.5' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<style>
+  /* 中：全部样式内联，零外部请求；配色 = 玫瑰（品牌）+ 青绿（数据感）+ 米白底 */
+  :root {
+    --ink: #241f26;
+    --muted: #5f5a66;
+    --bg: #fdf8f6;
+    --card: #ffffff;
+    --line: #eadfe3;
+    --rose: #b8507c;
+    --rose-dark: #93395f;
+    --rose-soft: #f7ecf2;
+    --teal: #22726c;
+    --amber-bg: #fdf3d7;
+    --amber-line: #ecd9a0;
+    --amber-ink: #6b5518;
+  }
+  * { box-sizing: border-box; }
+  /* 中：不加 scroll-behavior:smooth —— 平滑滚动会破坏无障碍的 reduced-motion 预期与截图拼接 */
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 56rem; margin-inline: auto; padding-inline: 1.25rem; }
+  a { color: var(--rose-dark); }
+  :focus-visible { outline: 3px solid var(--rose); outline-offset: 2px; border-radius: 4px; }
+
+  .skip {
+    position: absolute; left: -9999px; top: 0;
+    background: var(--rose); color: #fff; padding: .6rem 1rem; border-radius: 0 0 8px 0; z-index: 10;
+  }
+  .skip:focus { left: 0; }
+
+  /* 顶部导航 */
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .9rem; }
+  .brand { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; font-size: 1.15rem; text-decoration: none; color: var(--ink); }
+  .brand svg { flex: none; }
+  .nav-links { display: flex; align-items: center; gap: 1.1rem; }
+  .nav-links a { text-decoration: none; color: var(--muted); font-weight: 500; }
+  .nav-links a:hover { color: var(--rose-dark); }
+
+  /* 按钮 */
+  .btn {
+    display: inline-block; background: var(--rose); color: #fff;
+    padding: .8rem 1.5rem; border-radius: 999px; text-decoration: none;
+    font-weight: 600; border: none; font-size: 1rem; cursor: pointer;
+  }
+  .btn:hover { background: var(--rose-dark); }
+  .btn-ghost { background: transparent; color: var(--rose-dark); border: 2px solid var(--rose); padding-block: .68rem; }
+  .btn-ghost:hover { background: var(--rose-soft); }
+  .btn-small { padding: .45rem 1rem; font-size: .92rem; }
+
+  /* Hero */
+  .hero { text-align: center; padding-block: 3.2rem 2.4rem; }
+  .eyebrow {
+    display: inline-block; background: var(--rose-soft); color: var(--rose-dark);
+    font-weight: 600; font-size: .9rem; letter-spacing: .02em;
+    padding: .3rem .9rem; border-radius: 999px; margin-bottom: 1.1rem;
+  }
+  h1 { font-size: clamp(2rem, 5vw, 3.05rem); line-height: 1.15; margin: 0 0 1rem; letter-spacing: -.01em; }
+  .hero-sub { max-width: 42rem; margin: 0 auto 1.6rem; color: var(--muted); font-size: 1.15rem; }
+  .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin-bottom: 1.8rem; }
+  .badge {
+    display: inline-flex; align-items: center; gap: .45rem;
+    background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+    padding: .42rem .95rem; font-weight: 600; font-size: .95rem; color: var(--teal);
+  }
+  .badge svg { flex: none; }
+  .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-bottom: 1rem; }
+  .hero-note { color: var(--muted); font-size: .95rem; margin: 0; }
+
+  /* 免责声明条 */
+  .strip {
+    background: var(--amber-bg); border-block: 1px solid var(--amber-line);
+    color: var(--amber-ink); font-size: .95rem; text-align: center;
+    padding: .8rem 1.25rem; margin-top: .5rem;
+  }
+  .strip p { margin: 0; }
+
+  /* 通用区块 */
+  section { padding-block: 3.2rem; }
+  h2 { font-size: clamp(1.5rem, 3.4vw, 2rem); line-height: 1.25; margin: 0 0 .6rem; }
+  .section-sub { color: var(--muted); margin: 0 0 2rem; }
+
+  /* 功能三卡 */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  @media (max-width: 760px) { .cards { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 1.6rem 1.5rem; box-shadow: 0 1px 3px rgba(36, 31, 38, .05);
+  }
+  .card-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2.9rem; height: 2.9rem; border-radius: 12px;
+    background: var(--rose-soft); color: var(--rose-dark); margin-bottom: 1rem;
+  }
+  .card h3 { margin: 0 0 .55rem; font-size: 1.18rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .99rem; }
+  .card .p0 { display: inline-block; margin-top: 1rem; font-size: .78rem; font-weight: 600; letter-spacing: .04em; color: var(--teal); }
+
+  /* Waitlist 表单 */
+  .waitlist-card {
+    background: var(--card); border: 2px solid var(--rose); border-radius: 20px;
+    padding: 2.2rem 1.6rem; max-width: 40rem; margin-inline: auto; text-align: center;
+  }
+  .waitlist-card h2 { margin-bottom: .4rem; }
+  .waitlist-card .section-sub { margin-bottom: 1.5rem; }
+  .waitlist-form { text-align: left; }
+  .waitlist-form label { display: block; font-weight: 600; margin-bottom: .45rem; }
+  .form-row { display: flex; gap: .7rem; flex-wrap: wrap; }
+  .form-row input {
+    flex: 1 1 16rem; padding: .8rem 1rem; border: 1px solid var(--line); border-radius: 12px;
+    font-size: 1rem; font-family: inherit; background: #fff; color: var(--ink);
+  }
+  .form-row input:focus { border-color: var(--rose); outline: 3px solid var(--rose-soft); }
+  .fine { color: var(--muted); font-size: .88rem; margin: .9rem 0 0; }
+  /* 蜜罐字段：真人不可见，反垃圾 */
+  .hp { position: absolute; left: -9999px; top: -9999px; height: 0; overflow: hidden; }
+
+  /* FAQ：原生 details 手风琴，零 JS */
+  .faq { max-width: 46rem; margin-inline: auto; }
+  .faq details {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 1rem 1.3rem; margin-bottom: .8rem;
+  }
+  .faq summary { cursor: pointer; font-weight: 600; font-size: 1.05rem; }
+  .faq details[open] summary { color: var(--rose-dark); }
+  .faq details p { color: var(--muted); margin: .7rem 0 0; }
+
+  /* 阅读指南内链区（/articles/ 20 篇；文章当前为 noindex 草稿，见 content-plan §5.1 发布闸门） */
+  .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  @media (max-width: 760px) { .guides-grid { grid-template-columns: 1fr; } }
+  .guides-grid h3 { margin: 0 0 .55rem; font-size: 1.08rem; }
+  .guides-grid ul { list-style: none; margin: 0; padding: 0; }
+  .guides-grid li { margin-bottom: .5rem; font-size: .97rem; color: var(--muted); }
+  .guides-grid a { text-decoration: none; }
+  .guides-grid a:hover { text-decoration: underline; }
+
+  /* 页脚 */
+  footer { border-top: 1px solid var(--line); padding: 2.4rem 0 2.8rem; background: #fff; }
+  .disclaimer { font-size: .9rem; color: var(--muted); max-width: 52rem; }
+  .footer-row {
+    display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;
+    margin-top: 1.4rem; font-size: .92rem; color: var(--muted);
+  }
+  .footer-row nav { display: flex; gap: 1.1rem; }
+  .footer-row a { color: var(--muted); }
+  .footer-row a:hover { color: var(--rose-dark); }
+</style>
+
+<!-- FAQ 结构化数据：与下方可见 FAQ 文本逐字一致（SEO 基础之一） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is BumpSugar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "BumpSugar is a blood sugar and meal log for gestational diabetes. It helps you record the checks your care team ordered, see your own trends, and bring a clean report to every appointment. It is a logging and reminder tool, not a medical device and not a substitute for your care team." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BumpSugar medical advice?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. BumpSugar does not diagnose conditions, does not suggest medications or insulin doses, and does not interpret your numbers for you. Targets come from you and your care team; the app only shows how a reading compares to the targets you set. If a reading or symptom concerns you, contact your OB/GYN or endocrinologist." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my data stored?",
+      "acceptedAnswer": { "@type": "Answer", "text": "On your iPhone. BumpSugar has no accounts, no cloud sync, no ads and no third-party tracking SDKs, so there is no server for your log to be sent to. You can export your data (CSV and the printable PDF report) whenever you choose to share it." }
+    },
+    {
+      "@type": "Question",
+      "name": "What will BumpSugar cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The plan: logging, editing and CSV export stay free. The printable, doctor-ready PDF report and advanced trend charts are planned as a paid subscription (planned around $19.99 for 6 months, sized to cover the rest of a pregnancy). Final pricing will be confirmed when the beta opens." }
+    },
+    {
+      "@type": "Question",
+      "name": "When does it launch, and which iPhones does it support?",
+      "acceptedAnswer": { "@type": "Answer", "text": "BumpSugar is in development now and there is no public launch date yet. Waitlist members get TestFlight invites first. It is built for iPhone and requires iOS 17 or later." }
+    },
+    {
+      "@type": "Question",
+      "name": "I am scheduled for a glucose test (OGTT). Is BumpSugar for me?",
+      "acceptedAnswer": { "@type": "Answer", "text": "BumpSugar is designed for the tracking period after a gestational diabetes diagnosis, when your care team asks you to check your blood sugar at home. If you are waiting on your OGTT, there is nothing to log yet, but you can join the waitlist so the app is ready if you need it. Questions about the test itself are best asked of your care team." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does time in range mean here?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Time in range is a way of summarizing a glucose log, such as how your readings compare to the targets you set over the past week. In BumpSugar it is calculated on your iPhone against your own targets. What your numbers mean for you and your baby is a question for your care team, not for an app." }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ================= 顶部导航 ================= -->
+<header class="wrap">
+  <div class="nav">
+    <a class="brand" href="#main" aria-label="BumpSugar home">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#b8507c"/><path d="M9 22c0-6.5 3.1-11.5 7-11.5s7 5 7 11.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+      BumpSugar
+    </a>
+    <nav class="nav-links" aria-label="Site">
+      <a href="#features">Features</a>
+      <a href="#guides">Guides</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-small" href="#waitlist">Join the waitlist</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= Hero ================= -->
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <p class="eyebrow">Made for gestational diabetes (GDM)</p>
+    <!-- 中（eyebrow）：为妊娠糖尿病（GDM）而做 -->
+    <h1 id="hero-title">Turn doctor-ordered glucose logs into reports your doctor loves</h1>
+    <!-- 中（H1，定位一句话，任务指定）：把医生医嘱的血糖记录，变成医生爱看的报告 -->
+    <p class="hero-sub">
+      BumpSugar is a blood sugar and meal log built for gestational diabetes.
+      Log each check in seconds, watch your patterns take shape, and walk into every
+      appointment with a clean printable report instead of a messy notebook.
+    </p>
+    <!-- 中（副标题）：BumpSugar 是为妊娠糖尿病打造的血糖与餐食日志：几秒录完一次检测，
+         看见自己的趋势，产检时带上一份干净的打印报告，而不是一团乱的笔记本。 -->
+
+    <!-- 三差异徽章（口径 = prd.md:54：仅这三枚结构差异；PDF 是 parity，不作徽章） -->
+    <div class="badges" role="list" aria-label="How BumpSugar differs">
+      <span class="badge" role="listitem">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="5.8" y1="5.8" x2="18.2" y2="18.2"/></svg>
+        No ads
+      </span>
+      <span class="badge" role="listitem">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 19c1.4-3.2 4-5 7-5s5.6 1.8 7 5"/></svg>
+        No account
+      </span>
+      <span class="badge" role="listitem">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="10" width="14" height="9" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        Data never leaves your device
+      </span>
+    </div>
+    <!-- 中（三徽章）：无广告 · 无账号 · 数据不出设备 -->
+
+    <div class="cta-row">
+      <a class="btn" href="#waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="#features">See what&rsquo;s inside</a>
+    </div>
+    <!-- 中（CTA）：加入候补名单 / 看看它做什么 -->
+    <p class="hero-note">In development for iPhone (iOS 17+). TestFlight invites go to the waitlist first.</p>
+    <!-- 中（小字）：iPhone（iOS 17+）开发中；TestFlight 邀请先发给候补名单。 -->
+  </section>
+
+  <!-- 免责声明条（医疗红线：页面级显著位置；全文版在页脚） -->
+  <div class="strip" role="note">
+    <p><strong>BumpSugar is a logging and reminder tool</strong>, not a medical device and not medical advice. Always follow your OB/GYN or endocrinologist.</p>
+  </div>
+  <!-- 中（免责条）：BumpSugar 是记录与提醒工具，不是医疗器械，也不构成医疗建议。请始终遵循你的产科医生或内分泌医生。 -->
+
+  <!-- ================= 功能三卡（对应 P0-1/2/3 记录、P0-6 趋势、P0-7 医生 PDF） ================= -->
+  <section id="features" class="wrap" aria-labelledby="features-title">
+    <h2 id="features-title">What BumpSugar will do at launch</h2>
+    <!-- 中：BumpSugar 1.0 计划做到的事 -->
+    <p class="section-sub">In active development. Here is the plan for version 1.0:</p>
+    <!-- 中：开发中；以下是 1.0 的计划范围。 -->
+
+    <div class="cards">
+      <article class="card">
+        <span class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </span>
+        <h3>A log you can keep up with</h3>
+        <p>
+          Big-number entry for fasting, post-meal and bedtime checks. Tap Start meal to time
+          from the first bite, add food or walk notes, and link each reading to the meal that
+          triggered it. Missed a check? Backfill any day: every field stays editable, with no
+          time-window lock-outs.
+        </p>
+        <!-- 中（卡1 · P0-1/2/3）：一个跟得上的日志。空腹/餐后/睡前分类的大数字键盘录入；
+             点「开始用餐」从第一口计时；可附食物或散步笔记，并把读数关联到触发它的那餐。
+             漏检了？任意历史日补录：所有字段随时可编辑，没有时间窗限制。 -->
+        <span class="p0">LOGGING · MEALS · FIX MISTAKES</span>
+      </article>
+
+      <article class="card">
+        <span class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 16v-5"/><path d="M11 16V7"/><path d="M16 16v-7"/><path d="M21 16V4"/></svg>
+        </span>
+        <h3>Patterns at a glance</h3>
+        <p>
+          A time in range overview, typical values for each type of check, and week and month
+          views, all computed on your iPhone. See the shape of your week before the
+          appointment, not during it.
+        </p>
+        <!-- 中（卡2 · P0-6）：趋势一眼可见。time in range 总览、各类检查的典型值、周/月视图，
+             全部在你 iPhone 上本地计算。在产检前、而不是产检中，才看清这一周的形状。 -->
+        <span class="p0">TIME IN RANGE · TRENDS</span>
+      </article>
+
+      <article class="card">
+        <span class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+        </span>
+        <h3>Reports your doctor can read</h3>
+        <p>
+          Pick a date range and export a clean clinic-style PDF: your name in the header,
+          readings in the familiar grid, plus an appointment agenda of talking points.
+          Print it, AirDrop it, or email it. CSV export stays free.
+        </p>
+        <!-- 中（卡3 · P0-7）：医生读得懂的报告。选日期范围即可导出干净的诊所网格样式 PDF：
+             页眉是你的姓名、读数排成熟悉的网格，还附带一份就诊议程要点。
+             可打印、AirDrop 或邮件发送；CSV 导出永久免费。 -->
+        <span class="p0">PDF REPORT · CSV EXPORT</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= 邮件收集表单 ================= -->
+  <section id="waitlist" class="wrap" aria-labelledby="waitlist-title">
+    <div class="waitlist-card">
+      <h2 id="waitlist-title">Be first in line when the beta opens</h2>
+      <!-- 中：Beta 开放时排在最前面 -->
+      <p class="section-sub">
+        Leave your email and we will send your TestFlight invite when it is ready,
+        plus occasional launch updates. No spam, unsubscribe anytime.
+      </p>
+      <!-- 中：留下邮箱，Beta 就绪时我们会发送 TestFlight 邀请与少量上线动态。不发垃圾邮件，可随时退订。 -->
+
+      <!-- ============================================================
+           ⚠️ TODO（上线前必改）：action 目前是占位端点，提交会失败。
+           中：三种接法（README.md「表单接入」有完整说明与示例代码）：
+             1) Cloudflare Pages Functions：站点根目录加 functions/api/subscribe.js（README 有示例）；
+             2) 任意表单服务（Formspree / Basin / Getform 等）：把 action 换成服务给你的 URL；
+             3) 邮件服务订阅 API（Buttondown / MailerLite 等）。
+           字段约定：name="email" 唯一必填；name="website" 是蜜罐反垃圾字段（真人不可见），
+           接后端时校验它必须为空。
+           ============================================================ -->
+      <form class="waitlist-form" action="https://TODO-REPLACE-WITH-REAL-ENDPOINT.example/subscribe" method="post">
+        <label for="email">Email address</label>
+        <!-- 中：邮箱地址 -->
+        <div class="form-row">
+          <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
+          <button class="btn" type="submit">Join the waitlist</button>
+          <!-- 中：加入候补名单 -->
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label>Leave this field empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <p class="fine">
+          This form collects your email for launch updates only. Your glucose log,
+          the data inside the BumpSugar app, never leaves your device.
+        </p>
+        <!-- 中（表单隐私微文案）：本表单仅收集你的邮箱用于上线通知。
+             你的血糖记录（BumpSugar app 内的数据）不会离开你的设备。 -->
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq" class="wrap" aria-labelledby="faq-title">
+    <h2 id="faq-title">Questions, answered</h2>
+    <!-- 中：常见问题 -->
+    <p class="section-sub">Short answers here; nothing on this page is medical advice.</p>
+    <!-- 中：这里只给简短回答；本页任何内容都不构成医疗建议。 -->
+
+    <div class="faq">
+      <details open>
+        <summary>What is BumpSugar?</summary>
+        <!-- 中：BumpSugar 是什么？ -->
+        <p>
+          BumpSugar is a blood sugar and meal log for gestational diabetes. It helps you record
+          the checks your care team ordered, see your own trends, and bring a clean report to
+          every appointment. It is a logging and reminder tool, not a medical device and not a
+          substitute for your care team.
+        </p>
+        <!-- 中：BumpSugar 是为妊娠糖尿病打造的血糖与餐食日志，帮你记录医疗团队要求的检测、
+             看见自己的趋势、每次产检带上一份干净的报告。它是记录与提醒工具，不是医疗器械，
+             也不能替代你的医疗团队。 -->
+      </details>
+
+      <details>
+        <summary>Is BumpSugar medical advice?</summary>
+        <!-- 中：BumpSugar 是医疗建议吗？ -->
+        <p>
+          No. BumpSugar does not diagnose conditions, does not suggest medications or insulin
+          doses, and does not interpret your numbers for you. Targets come from you and your
+          care team; the app only shows how a reading compares to the targets you set. If a
+          reading or symptom concerns you, contact your OB/GYN or endocrinologist.
+        </p>
+        <!-- 中：不是。BumpSugar 不做诊断、不建议药物或胰岛素剂量、也不替你解读数值。
+             目标范围来自你和你的医疗团队；App 只显示读数与你所设目标的对比。
+             如任何读数或症状令你担忧，请联系你的产科医生或内分泌医生。 -->
+      </details>
+
+      <details>
+        <summary>Where is my data stored?</summary>
+        <!-- 中：我的数据存在哪里？ -->
+        <p>
+          On your iPhone. BumpSugar has no accounts, no cloud sync, no ads and no third-party
+          tracking SDKs, so there is no server for your log to be sent to. You can export your
+          data (CSV and the printable PDF report) whenever you choose to share it.
+        </p>
+        <!-- 中：存在你的 iPhone 上。BumpSugar 没有账号、没有云同步、没有广告、没有第三方
+             统计 SDK，因此不存在能接收你记录的服务器。你可以随时主动导出数据
+             （CSV 与可打印的 PDF 报告）来分享。 -->
+      </details>
+
+      <details>
+        <summary>What will BumpSugar cost?</summary>
+        <!-- 中：BumpSugar 多少钱？ -->
+        <p>
+          The plan: logging, editing and CSV export stay free. The printable, doctor-ready PDF
+          report and advanced trend charts are planned as a paid subscription (planned around
+          $19.99 for 6 months, sized to cover the rest of a pregnancy). Final pricing will be
+          confirmed when the beta opens.
+        </p>
+        <!-- 中：计划如下：记录、编辑与 CSV 导出永久免费；可打印的医生报告与进阶趋势图表
+             计划放入订阅（计划价约 $19.99/6 个月，覆盖孕程后半段）。最终定价在 Beta 开放时公布。 -->
+      </details>
+
+      <details>
+        <summary>When does it launch, and which iPhones does it support?</summary>
+        <!-- 中：什么时候上线？支持哪些 iPhone？ -->
+        <p>
+          BumpSugar is in development now and there is no public launch date yet. Waitlist
+          members get TestFlight invites first. It is built for iPhone and requires iOS 17 or later.
+        </p>
+        <!-- 中：开发中，暂无公开上线日期。候补名单成员优先获得 TestFlight 邀请。
+             为 iPhone 打造，需 iOS 17 或更高版本。 -->
+      </details>
+
+      <details>
+        <summary>I am scheduled for a glucose test (OGTT). Is BumpSugar for me?</summary>
+        <!-- 中：我约了糖耐量试验（OGTT），BumpSugar 适合我吗？ -->
+        <p>
+          BumpSugar is designed for the tracking period after a gestational diabetes diagnosis,
+          when your care team asks you to check your blood sugar at home. If you are waiting on
+          your OGTT, there is nothing to log yet, but you can join the waitlist so the app is
+          ready if you need it. Questions about the test itself are best asked of your care team.
+        </p>
+        <!-- 中：BumpSugar 为确诊妊娠糖尿病后的居家监测期设计（医疗团队要求在家测血糖的阶段）。
+             如果你还在等 OGTT，目前还没有可记录的内容，但可以先加入候补名单，需要时即可用上。
+             关于检查本身的问题，请询问你的医疗团队。 -->
+      </details>
+
+      <details>
+        <summary>What does time in range mean here?</summary>
+        <!-- 中：这里的 time in range 是什么意思？ -->
+        <p>
+          Time in range is a way of summarizing a glucose log, such as how your readings compare
+          to the targets you set over the past week. In BumpSugar it is calculated on your iPhone
+          against your own targets. What your numbers mean for you and your baby is a question
+          for your care team, not for an app.
+        </p>
+        <!-- 中：time in range 是汇总血糖记录的一种方式，例如过去一周读数与你所设目标的对比。
+             在 BumpSugar 中它基于你自己的目标、在你 iPhone 上本地计算。
+             数值对你和宝宝意味着什么，是医疗团队的问题，不是 App 的问题。 -->
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= 阅读指南（/articles/ 20 篇内链：落地页与内容站互链，补 SEO 架构缺口。
+       文章当前全部 noindex: true 草稿态，发布闸门 = App 上线 + ASA 首月验证（content-plan §5.1），
+       届时移除各篇 noindex 并复核本页 robots meta。链接一律相对路径（slug 口径，同文章内链）。 ================= -->
+  <section id="guides" class="wrap" aria-labelledby="guides-title">
+    <h2 id="guides-title">Guides: from diagnosis to appointment</h2>
+    <!-- 中：阅读指南：从确诊到产检 -->
+    <p class="section-sub">
+      Plain-language guides on the logging side of gestational diabetes — what to record,
+      how to read your own numbers, and what to bring to your care team. None of them is medical advice.
+    </p>
+    <!-- 中：妊娠糖尿病记录环节的通俗指南——记什么、怎么读自己的数值、带什么去见医疗团队。均不构成医疗建议。 -->
+    <div class="guides-grid">
+      <div>
+        <h3>After diagnosis</h3>
+        <!-- 中：确诊之后 -->
+        <ul>
+          <li><a href="/articles/what-is-gestational-diabetes/">What is gestational diabetes?</a></li>
+          <li><a href="/articles/just-diagnosed-gestational-diabetes/">Just diagnosed: your first 7 days</a></li>
+          <li><a href="/articles/failed-glucose-test-pregnancy/">Failed the glucose test? What happens next</a></li>
+          <li><a href="/articles/glucose-tolerance-test-pregnancy/">The OGTT: a test-day walkthrough</a></li>
+          <li><a href="/articles/gestational-diabetes-blood-sugar-targets/">Blood sugar targets: who sets them</a></li>
+          <li><a href="/articles/gestational-diabetes-app-privacy/">GDM apps and your data</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Logging and reading your numbers</h3>
+        <!-- 中：记录与读数 -->
+        <ul>
+          <li><a href="/articles/when-to-check-blood-sugar-after-eating-pregnancy/">When to check after eating: 1-hour vs 2-hour</a></li>
+          <li><a href="/articles/blood-sugar-log-pregnancy/">How to read your blood sugar log</a></li>
+          <li><a href="/articles/high-fasting-blood-sugar-reading/">A high reading: what to write down first</a></li>
+          <li><a href="/articles/time-in-range-pregnancy/">Time in range during pregnancy</a></li>
+          <li><a href="/articles/gestational-diabetes-food-log/">The GDM food log</a></li>
+          <li><a href="/articles/insulin-log/">Insulin notes: what to record</a></li>
+          <li><a href="/articles/cgm-pregnancy/">Using a CGM during pregnancy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Paper, apps, and your appointments</h3>
+        <!-- 中：纸笔、App 与就诊 -->
+        <ul>
+          <li><a href="/articles/printable-blood-sugar-log/">Printable log vs a GDM app</a></li>
+          <li><a href="/articles/best-gestational-diabetes-app/">Choosing an app: a 9-point checklist</a></li>
+          <li><a href="/articles/paper-log-vs-app-gestational-diabetes/">Paper log vs app: an honest comparison</a></li>
+          <li><a href="/articles/gestational-diabetes-log-book-report/">Turn your log into a 2-page report</a></li>
+          <li><a href="/articles/gestational-diabetes-questions-to-ask-doctor/">Questions to ask at appointments</a></li>
+          <li><a href="/articles/mg-dl-vs-mmol-l/">mg/dL vs mmol/L</a></li>
+          <li><a href="/articles/after-birth-gdm-log-archive/">After birth: archiving your log</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= 页脚：完整免责声明（医疗红线，同源 content-plan.md:44 站点标准免责） ================= -->
+<footer id="footer">
+  <div class="wrap">
+    <p class="disclaimer">
+      <strong>DISCLAIMER:</strong> BumpSugar is a logging and reminder tool, not a medical device.
+      Nothing on this page is medical advice, diagnosis, or treatment, and BumpSugar never
+      recommends medications or insulin doses. Target ranges and check schedules belong to you and
+      your care team: always follow your doctor. Reminders use standard local notifications and may
+      be delayed or suppressed by Focus mode or notification permissions, so do not rely on
+      BumpSugar as your only reminder to test. If a reading or symptom concerns you, contact your
+      healthcare provider.
+    </p>
+    <!-- 中（页脚免责声明，全站标准免责的落地页版）：BumpSugar 是记录与提醒工具，不是医疗器械。
+         本页内容仅为一般信息，不构成医疗建议、诊断或治疗；BumpSugar 永不推荐药物或胰岛素剂量。
+         目标范围与检测安排属于你和你的医疗团队：请始终遵医嘱。提醒走系统本地通知，
+         可能因专注模式或通知权限而延迟或不呈现，请勿把 BumpSugar 当作按时检测的唯一提醒。
+         如任何读数或症状令你担忧，请联系你的医疗服务方。 -->
+
+    <div class="footer-row">
+      <p style="margin:0;">&copy; 2026 BumpSugar</p>
+      <nav aria-label="Legal">
+        <!-- 中：TODO 上线前补真实链接：隐私政策与服务条款文本由本静态站托管
+             （content-plan.md §2.4 / prd.md:302），当前为占位锚点 -->
+        <a href="#faq" title="TODO: replace with /privacy before launch">Privacy policy</a>
+        <a href="#faq" title="TODO: replace with /terms before launch">Terms</a>
+        <a href="mailto:hello@TODO-bumpsugar-domain.example" title="TODO: replace with real contact email">Contact</a>
+      </nav>
+      <!-- 中：隐私政策 / 条款 / 联系我们 -->
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

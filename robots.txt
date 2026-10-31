@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Sitemap: 单页 waitlist 站暂不需要；后续挂内容站时再补 sitemap.xml（见 README SEO 待办）
